@@ -1,5 +1,1 @@
-{
-    "ConnectionStrings": {
-      "BloggingContext": "Server=bitsql.wctc.edu;Database=BlogsConsole_EFTutorial_12090_lsimonen;User ID=lsimonen;Password=000259304;" 
-    }
-  }
+
