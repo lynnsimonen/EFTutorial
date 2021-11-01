@@ -39,12 +39,14 @@ namespace EFTutorial
                 System.Console.WriteLine("Please identify the Blog ID# for the posts that you would like listed: ");  
                 int blogID = int.Parse(Console.ReadLine());     
                 var listPosts = db.Blogs.Where(x=>x.BlogId == blogID).FirstOrDefault();
+               
             }
 
-            System.Console.WriteLine($"Posts for Blog {Blog.listPosts.Name}");
             Blog blog = new Blog();
             var posts = blog.Posts;
-            foreach (var post in blog.Posts) 
+
+            System.Console.WriteLine($"Posts for Blog titles: {blog.Name}");
+            foreach (var post in posts) 
             {
                 System.Console.WriteLine($"\tPost {post.PostId} {post.Title}");
             }

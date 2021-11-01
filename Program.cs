@@ -46,11 +46,11 @@ namespace EFTutorial
                 }
 
                 //LIST BLOGS
-                // else if (libraryOption.ToUpper() == "D")
-                // {
-                //     PostManager postManager = new PostManager();
-                //     postManager.Display();
-                // }
+                else if (libraryOption.ToUpper() == "D")
+                {
+                    PostManager postManager = new PostManager();
+                    postManager.Display();
+                }
 
             } while (!(libraryOption.ToUpper() == "QUIT"));    
         }
