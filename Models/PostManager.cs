@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -34,26 +35,19 @@ namespace EFTutorial
         
         public void Display()
         {
+            System.Console.WriteLine("Enter your Blog ID: ");
+            var IdBlog = int.Parse(Console.ReadLine());
             using (var db = new BlogContext())
-            {
-                System.Console.WriteLine("Please identify the Blog ID# for the posts that you would like listed: ");  
-                int blogID = int.Parse(Console.ReadLine());     
-                var listPosts = db.Blogs.Where(x=>x.BlogId == blogID).FirstOrDefault();
-               
+            { 
+                var postsReq = db.Posts.Where(x=>x.BlogId == IdBlog);
+                var blogPosts = db.Blogs.FirstOrDefault(x=>x.BlogId ==IdBlog);
+                System.Console.WriteLine($"\nBlog #{blogPosts.BlogId}: {blogPosts.Name} (includes {postsReq.Count()} posts)");
+                string input;
+                foreach (var item in postsReq)
+                {
+                    System.Console.WriteLine($"     Post #{item.PostId}: {item.Title} - {(input = (item.Content != null) ? item.Content : "No Content Yet.")}");
+                }                
             }
-
-            Blog blog = new Blog();
-            var posts = blog.Posts;
-
-            System.Console.WriteLine($"Posts for Blog titles: {blog.Name}");
-            foreach (var post in posts) 
-            {
-                System.Console.WriteLine($"\tPost {post.PostId} {post.Title}");
-            }
-            
         }
     }
 }
-
-//     var blog = db.Blogs.Where(x=>x.BlogId == 1).FirstOrDefault();        //Without the .FirstOrDefault() it HAS NOT executed against list/database YET!
-//     //var blogsList = blog.ToList();                                      //NOW the IQuery has been executed against list/database :)

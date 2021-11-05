@@ -13,6 +13,11 @@ namespace EFTutorial
         // entity framework relationship
         // Navigation Properties
         public List<Post> Posts {get;set;}
+
+         public override string ToString()
+        {
+            return String.Format("{0, 3}  {1,-30}", BlogId, Name);
+        }
     }
 
 }

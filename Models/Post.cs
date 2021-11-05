@@ -21,6 +21,11 @@ namespace EFTutorial
         //     this.PostId = PostId;
         //     this.Title = Title;
         // }
+
+        public override string ToString()
+        {
+            return String.Format("{0, 3}  {1,-30}: {2, -45}...", PostId, Title, Content);
+        }
     }
 
 }
